@@ -247,62 +247,13 @@ img.contentimg {
     display: none;
 }
 
-.post{
-  width:30%;
-}
-img.mobileimg {
-    width: 100%;
-}
-.appfeatures {
-    text-align: right;
-    margin-top: 7%;
-    margin-right: 10%;
-}
-
-.appfeatures2 {
-    margin-top: 8%;
-    text-align: left;
-    float: right;
-    margin-left: 10%;
-}
-.appfeaturesfirst{
-  margin-bottom: 100px;
-}
-.appfeaturesthird{
-  margin-bottom: 100px;
-}
-
-img.runicondis{
-    height: 82px;
-    position: absolute;
-    margin-top: -79px;
-    margin-left: 158px;
-  }
-  .container {
+.container {
     margin-bottom: 33px;
 }
 .wrapdis {
     margin-bottom: 95px;
     margin-top: -20px;
 }
-.flex-row{
-    padding: 50px;
-    display: flex;
-    flex-direction:row;
-}
-.flex-column{
-    display: flex;
-    flex-direction:column;
-    
-}
-.auto{
-    margin: auto;
-}
-.overlay {
-    padding: 0px 212px 100px 244px;
-}
-
-
 button {
     height: 42px;
     width: 300px;
