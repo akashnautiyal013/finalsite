@@ -3,17 +3,7 @@
 angular.module('sharingsmiles', []).controller('HomeController',HomeController);
 
 function HomeController($scope,$routeParams){
-	   $scope.socialevents = [
-    { title: 'Hiranadani Powai Run',address:'Hiranadani Gardens,Mumbai',by:'Nike',src:'img/ionic.png',distance:'0.2 Miles',id: 1,dis:'asd af ada fadgsgsfgsdgs sfsfgsfgs sfssfhs sdfsdg sdgsgs' },
-    { title: 'One Day at Fram',address:'Dope Da Gaon',by:'Abhijeet Dope',src:'img/joy-event.jpg',distance:'0.5 Miles',id: 2 },
-    { title: 'Shop for a cause',address:'NID Ahemdabad',by:'Yuri Oberoi',src:'img/shop_cause_event.jpg',distance:'5.0 Miles', id: 3 }
-    
-  ];
-  $scope.socialevents= $scope.socialevents.filter(function(socialevent){
-    if(socialevent.id==$routeParams.socialeventId){
-      return true;
-    }
-  })
+	
     
 // iPad and iPod detection  
   var isiPad = function(){
@@ -29,46 +19,6 @@ function HomeController($scope,$routeParams){
 
 
 
-  // Carousel Feature Slide
-  var owlCrouselFeatureSlide = function() {
-    
-    var owl = $('.owl-carousel');
-
-    owl.on('initialized.owl.carousel change.owl.carousel',function(elem){
-      var current = elem.item.index;
-      $(elem.target).find(".owl-item").eq(current).find(".to-animate").removeClass('fadeInUp animated');
-      $(elem.target).find(".owl-item").eq(current).find(".to-animate-2").removeClass('fadeInUp animated');
-    
-    });
-    owl.on('initialized.owl.carousel changed.owl.carousel',function(elem){
-      setTimeout(function(){
-        var current = elem.item.index;
-        $(elem.target).find(".owl-item").eq(current).find(".to-animate").addClass('fadeInUp animated');
-      }, 700);
-      setTimeout(function(){
-        var current = elem.item.index;
-        $(elem.target).find(".owl-item").eq(current).find(".to-animate-2").addClass('fadeInUp animated');
-      }, 900);
-      });
-    owl.owlCarousel({
-      items: 1,
-        loop: true,
-        margin: 0,
-        responsiveClass: true,
-        nav: true,
-        dots: true,
-        autoHeight: true,
-        smartSpeed: 500,
-        autoplay: false,
-      autoplayTimeout: 5000,
-      autoplayHoverPause: true,
-        navText: [  
-          "<i class='icon-arrow-left2 owl-direction'></i>",
-          "<i class='icon-arrow-right2 owl-direction'></i>"
-        ]
-    });
-
-  };
 
 
 
@@ -78,35 +28,7 @@ function HomeController($scope,$routeParams){
   // // Burger Menu
   var burgerMenu = function() {
 
-   $('body').on('click', '.js-fh5co-nav-toggle', function(event){
-
-     if ( $('#navbar').is(':visible') ) {
-       $(this).removeClass('active');  
-     } else {
-       $(this).addClass('active'); 
-     }
-
-     event.preventDefault();
-      
-   });
-
-  };
-
-
-
-function closeMenuMobile (){
-    $("#wrapper-menu-mobile .wrapper").animate({ right:"-100%"},300,function(){
-        $("#wrapper-menu-mobile").animate({opacity:0},200,function(){
-            $("#wrapper-menu-mobile").css({left:"100%", opacity:1});
-            jQuery(document.body).css('overflow', 'auto');
-        });
-    });
-}
-
-
-  // Page Nav
-  var clickMenu = function() {
-        $("#menubtn").click(function(){
+  $("#menubtn").click(function(){
         $("#wrapper-menu-mobile").css({left:0, opacity:0});
         $("#wrapper-menu-mobile").animate({opacity:1},200);
         $("#wrapper-menu-mobile .wrapper").animate({ right:"0"},300);
@@ -122,8 +44,42 @@ function closeMenuMobile (){
     $(".block-menu-mobile").mousedown(function(){
         closeMenuMobile ();
     });
+
   };
 
+
+
+function closeMenuMobile (){
+    $("#wrapper-menu-mobile .wrapper").animate({ right:"-100%"},300,function(){
+        $("#wrapper-menu-mobile").animate({opacity:0},200,function(){
+            $("#wrapper-menu-mobile").css({left:"100%", opacity:1});
+            jQuery(document.body).css('overflow', 'auto');
+        });
+    });
+};
+
+
+  // Page Nav
+   var clickMenu = function() {
+
+		$('a:not([class="external"])').click(function(event){
+			var section = $(this).data('nav-section'),
+				navbar = $('#navbar');
+		    $('html, body').animate({
+		        scrollTop: $('[data-section="' + section + '"]').offset().top
+		    }, 500);
+
+		    if ( navbar.is(':visible')) {
+		    	navbar.removeClass('in');
+		    	navbar.attr('aria-expanded', 'false');
+		    	$('.js-fh5co-nav-toggle').removeClass('active');
+		    }
+
+		    event.preventDefault();
+		    return false;
+		});
+
+	};
   // Reflect scrolling in navigation
   var navActive = function(section) {
 
@@ -167,9 +123,9 @@ function closeMenuMobile (){
         var header = $('#fh5co-header'),
         scrlTop = $(this).scrollTop();
 
-      if ( scrlTop > 500 && scrlTop <= 2000 ) {
+      if ( scrlTop > 200 && scrlTop <= 2000 ) {
         header.addClass('navbar-fixed-top fh5co-animated slideInDown');
-      } else if ( scrlTop <= 500) {
+      } else if ( scrlTop <= 200) {
         if ( header.hasClass('navbar-fixed-top') ) {
           header.addClass('navbar-fixed-top fh5co-animated slideOutUp');
           setTimeout(function(){
@@ -183,42 +139,7 @@ function closeMenuMobile (){
 
 
 
-  // Animations
-
-  // About Us
-  var aboutAnimate = function() {
-
-    if ( $('#about-us').length > 0 ) {  
-      $('#about-us .to-animate').each(function( k ) {
-        
-        var el = $(this);
-        
-        setTimeout ( function () {
-          el.addClass('fadeInUp animated');
-        },  k * 200, 'easeInOutExpo' );
-        
-      });
-    }
-
-  };
-  var aboutWayPoint = function() {
-
-    if ( $('#about-us').length > 0 ) {
-      $('#about-us').waypoint( function( direction ) {
-                    
-        if( direction === 'down' && !$(this).hasClass('animated') ) {
-
-
-          setTimeout(aboutAnimate, 200);
-
-          
-          $(this.element).addClass('animated');
-            
-        }
-      } , { offset: '95%' } );
-    }
-
-  };
+ 
 
  
   
@@ -227,12 +148,12 @@ function closeMenuMobile (){
   // Document on load.
   $(function(){
 
-  
-    owlCrouselFeatureSlide();
+    burgerMenu();
+     clickMenu ();
     windowScroll();
     navigationSection();
-        clickMenu ();
-    aboutWayPoint();
+    clickMenu ();
+    
 
   });
 

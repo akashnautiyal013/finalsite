@@ -1,17 +1,12 @@
-angular.module('sharingsmiles', []).controller('BlogController',BlogController);
+angular.module('sharingsmiles', [])
+.controller('BlogController',BlogController);
 
-function BlogController($scope,$routeParams){
-	$scope.newses = [
-    { title: 'Hiranadani Powai Run',address:'Hiranadani Gardens,Mumbai',by:'Nike',img:'img/ionic.png',distance:'0.2 Miles',id: 1,dis:'asd af ada fadgsgsfgsdgs sfsfgsfgs sfssfhs sdfsdg sdgsgs' },
-    { title: 'One Day at Fram',address:'Dope Da Gaon',by:'Abhijeet Dope',src:'img/joy-event.jpg',distance:'0.5 Miles',id: 2 },
-    { title: 'Shop for a cause',address:'NID Ahemdabad',by:'Yuri Oberoi',img:'img/shop_cause_event.jpg',distance:'5.0 Miles', id: 3 }
-    
-  ];
-  $scope.newses= $scope.newses.filter(function(news){
-    if(news.id==$routeParams.newsId){
-      return true;
-    }
-  })
+function BlogController($scope,$http){
+
+   $http.get("/news.json").success(function (data){
+        $scope.blogs = data;
+    });
+   
 // iPad and iPod detection  
   var isiPad = function(){
     return (navigator.platform.indexOf("iPad") != -1);
@@ -23,10 +18,14 @@ function BlogController($scope,$routeParams){
       (navigator.platform.indexOf("iPod") != -1)
       );
   };
+ $('.arrow').on("click", function (event) {
+    $('.arrow-img').toggleClass('rotate');
+    $('.arrow-img').toggleClass('rotate2');
+});
 
-
-
-  // Carousel Feature Slide
+$(document).ready(function () {
+	$('#nav').children('li').first().children('a').addClass('active')        .next().addClass('is-open').show();            $('#nav').on('click', 'li > a', function() {              if (!$(this).hasClass('active')) {        $('#nav .is-open').removeClass('is-open').hide();        $(this).next().toggleClass('is-open').toggle();                  $('#nav').find('.active').removeClass('active');        $(this).addClass('active');      } else {        $('#nav .is-open').removeClass('is-open').hide();        $(this).removeClass('active');      }   });});
+// Carousel Feature Slide
   var owlCrouselFeatureSlide = function() {
     
     var owl = $('.owl-carousel');
@@ -66,26 +65,28 @@ function BlogController($scope,$routeParams){
     });
 
   };
-
-
-
   
 
 
   // // Burger Menu
   var burgerMenu = function() {
 
-   $('body').on('click', '.js-fh5co-nav-toggle', function(event){
+   $("#menubtn").click(function(){
+        $("#wrapper-menu-mobile").css({left:0, opacity:0});
+        $("#wrapper-menu-mobile").animate({opacity:1},200);
+        $("#wrapper-menu-mobile .wrapper").animate({ right:"0"},300);
+        jQuery(document.body).css('overflow', 'hidden');
+        return false;
+    });
 
-     if ( $('#navbar').is(':visible') ) {
-       $(this).removeClass('active');  
-     } else {
-       $(this).addClass('active'); 
-     }
+    $("#bt-fechar-menu").click(function(){
+        closeMenuMobile ();
+        return false;
+    });
 
-     event.preventDefault();
-      
-   });
+    $(".block-menu-mobile").mousedown(function(){
+        closeMenuMobile ();
+    });
 
   };
 
@@ -102,24 +103,6 @@ function closeMenuMobile (){
 
 
   // Page Nav
-  var clickMenu = function() {
-        $("#menubtn").click(function(){
-        $("#wrapper-menu-mobile").css({left:0, opacity:0});
-        $("#wrapper-menu-mobile").animate({opacity:1},200);
-        $("#wrapper-menu-mobile .wrapper").animate({ right:"0"},300);
-        jQuery(document.body).css('overflow', 'hidden');
-        return false;
-    });
-
-    $("#bt-fechar-menu").click(function(){
-        closeMenuMobile ();
-        return false;
-    });
-
-    $(".block-menu-mobile").mousedown(function(){
-        closeMenuMobile ();
-    });
-  };
 
   // Reflect scrolling in navigation
   var navActive = function(section) {
@@ -164,9 +147,9 @@ function closeMenuMobile (){
         var header = $('#fh5co-header'),
         scrlTop = $(this).scrollTop();
 
-      if ( scrlTop > 500 && scrlTop <= 2000 ) {
+      if ( scrlTop > 300 && scrlTop <= 2000 ) {
         header.addClass('navbar-fixed-top fh5co-animated slideInDown');
-      } else if ( scrlTop <= 500) {
+      } else if ( scrlTop <= 300) {
         if ( header.hasClass('navbar-fixed-top') ) {
           header.addClass('navbar-fixed-top fh5co-animated slideOutUp');
           setTimeout(function(){
@@ -178,57 +161,14 @@ function closeMenuMobile (){
     });
   };
 
-
-
-  // Animations
-
-  // About Us
-  var aboutAnimate = function() {
-
-    if ( $('#about-us').length > 0 ) {  
-      $('#about-us .to-animate').each(function( k ) {
-        
-        var el = $(this);
-        
-        setTimeout ( function () {
-          el.addClass('fadeInUp animated');
-        },  k * 200, 'easeInOutExpo' );
-        
-      });
-    }
-
-  };
-  var aboutWayPoint = function() {
-
-    if ( $('#about-us').length > 0 ) {
-      $('#about-us').waypoint( function( direction ) {
-                    
-        if( direction === 'down' && !$(this).hasClass('animated') ) {
-
-
-          setTimeout(aboutAnimate, 200);
-
-          
-          $(this.element).addClass('animated');
-            
-        }
-      } , { offset: '95%' } );
-    }
-
-  };
  
 
   // Document on load.
   $(function(){
-
-  
-    owlCrouselFeatureSlide();
+  	burgerMenu();
     windowScroll();
     navigationSection();
-        clickMenu ();
-    aboutWayPoint();
-    
-
+    navActive();
   });
 
 

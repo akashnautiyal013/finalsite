@@ -16,46 +16,7 @@ function AboutusController($scope){
 
 
 
-  // Carousel Feature Slide
-  var owlCrouselFeatureSlide = function() {
-    
-    var owl = $('.owl-carousel');
-
-    owl.on('initialized.owl.carousel change.owl.carousel',function(elem){
-      var current = elem.item.index;
-      $(elem.target).find(".owl-item").eq(current).find(".to-animate").removeClass('fadeInUp animated');
-      $(elem.target).find(".owl-item").eq(current).find(".to-animate-2").removeClass('fadeInUp animated');
-    
-    });
-    owl.on('initialized.owl.carousel changed.owl.carousel',function(elem){
-      setTimeout(function(){
-        var current = elem.item.index;
-        $(elem.target).find(".owl-item").eq(current).find(".to-animate").addClass('fadeInUp animated');
-      }, 700);
-      setTimeout(function(){
-        var current = elem.item.index;
-        $(elem.target).find(".owl-item").eq(current).find(".to-animate-2").addClass('fadeInUp animated');
-      }, 900);
-      });
-    owl.owlCarousel({
-      items: 1,
-        loop: true,
-        margin: 0,
-        responsiveClass: true,
-        nav: true,
-        dots: true,
-        autoHeight: true,
-        smartSpeed: 500,
-        autoplay: false,
-      autoplayTimeout: 5000,
-      autoplayHoverPause: true,
-        navText: [  
-          "<i class='icon-arrow-left2 owl-direction'></i>",
-          "<i class='icon-arrow-right2 owl-direction'></i>"
-        ]
-    });
-
-  };
+  
 
 
 
@@ -64,19 +25,22 @@ function AboutusController($scope){
 
   // // Burger Menu
   var burgerMenu = function() {
+$("#menubtn").click(function(){
+        $("#wrapper-menu-mobile").css({left:0, opacity:0});
+        $("#wrapper-menu-mobile").animate({opacity:1},200);
+        $("#wrapper-menu-mobile .wrapper").animate({ right:"0"},300);
+        jQuery(document.body).css('overflow', 'hidden');
+        return false;
+    });
 
-   $('body').on('click', '.js-fh5co-nav-toggle', function(event){
+    $("#bt-fechar-menu").click(function(){
+        closeMenuMobile ();
+        return false;
+    });
 
-     if ( $('#navbar').is(':visible') ) {
-       $(this).removeClass('active');  
-     } else {
-       $(this).addClass('active'); 
-     }
-
-     event.preventDefault();
-      
-   });
-
+    $(".block-menu-mobile").mousedown(function(){
+        closeMenuMobile ();
+    });1
   };
 
 
@@ -93,23 +57,25 @@ function closeMenuMobile (){
 
   // Page Nav
   var clickMenu = function() {
-        $("#menubtn").click(function(){
-        $("#wrapper-menu-mobile").css({left:0, opacity:0});
-        $("#wrapper-menu-mobile").animate({opacity:1},200);
-        $("#wrapper-menu-mobile .wrapper").animate({ right:"0"},300);
-        jQuery(document.body).css('overflow', 'hidden');
-        return false;
-    });
 
-    $("#bt-fechar-menu").click(function(){
-        closeMenuMobile ();
-        return false;
-    });
+		$('a:not([class="external"])').click(function(event){
+			var section = $(this).data('nav-section'),
+				navbar = $('#navbar');
+		    $('html, body').animate({
+		        scrollTop: $('[data-section="' + section + '"]').offset().top
+		    }, 500);
 
-    $(".block-menu-mobile").mousedown(function(){
-        closeMenuMobile ();
-    });
-  };
+		    if ( navbar.is(':visible')) {
+		    	navbar.removeClass('in');
+		    	navbar.attr('aria-expanded', 'false');
+		    	$('.js-fh5co-nav-toggle').removeClass('active');
+		    }
+
+		    event.preventDefault();
+		    return false;
+		});
+
+	};
 
   // Reflect scrolling in navigation
   var navActive = function(section) {
@@ -170,43 +136,6 @@ function closeMenuMobile (){
 
 
 
-  // Animations
-
-  // About Us
-  var aboutAnimate = function() {
-
-    if ( $('#about-us').length > 0 ) {  
-      $('#about-us .to-animate').each(function( k ) {
-        
-        var el = $(this);
-        
-        setTimeout ( function () {
-          el.addClass('fadeInUp animated');
-        },  k * 200, 'easeInOutExpo' );
-        
-      });
-    }
-
-  };
-  var aboutWayPoint = function() {
-
-    if ( $('#about-us').length > 0 ) {
-      $('#about-us').waypoint( function( direction ) {
-                    
-        if( direction === 'down' && !$(this).hasClass('animated') ) {
-
-
-          setTimeout(aboutAnimate, 200);
-
-          
-          $(this.element).addClass('animated');
-            
-        }
-      } , { offset: '95%' } );
-    }
-
-  };
-
   
 
 
@@ -215,13 +144,14 @@ function closeMenuMobile (){
 
   // Document on load.
   $(function(){
-
-  
-    owlCrouselFeatureSlide();
+  	burgerMenu();
     windowScroll();
     navigationSection();
-        clickMenu ();
-    aboutWayPoint();
+    navActive();
+    clickMenu();
+
     
   });
-   }
+
+
+ }

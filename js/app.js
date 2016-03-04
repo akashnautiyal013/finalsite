@@ -1,6 +1,6 @@
 (function () {
     'use strict';
- var sharingsmiles = angular.module('sharingsmiles', ['ngRoute', 'ngCookies'])
+ var app = angular.module('sharingsmiles', ['ngRoute', 'ngCookies'])
         .config(config)
 
     config.$inject = ['$routeProvider', '$locationProvider'];
