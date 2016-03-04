@@ -295,7 +295,7 @@ input[type="submit"] {
         font-size: 30px;
     }
     .section-heading h3 {
-        font-size: 24px !important;
+        font-size: 20px !important;
         line-height: 34px;
     }
     #fh5co-features {
@@ -303,6 +303,10 @@ input[type="submit"] {
     }
 }
 @media screen and (max-width: 480px) {
+   .section-heading h3 {
+        font-size: 20px !important;
+        line-height: 34px;
+    }
     span.orspan {
         position: absolute !important;
         font-size: 25px;
@@ -634,6 +638,13 @@ input[type="submit"] {
     background-size: cover;
 }
 @media screen and (max-width: 480px) {
+  section.head.img_container.ng-scope {
+    background: url("/images/run2.jpeg") no-repeat;
+    background-size: 225% 100% !important;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 95% !important;
+}
   .col-md-4.appservices{
     display: none;
   }
@@ -732,6 +743,13 @@ input[type="submit"] {
     border-bottom: none !important;
 }
 @media screen and (max-width: 768px) {
+  section.head.img_container.ng-scope {
+    background: url("/images/run2.jpeg") no-repeat;
+    background-size: 225% 100% !important;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 95% !important;
+}
   .col-md-4.appservices{
     display: none;
   }
