@@ -1,7 +1,7 @@
 
 angular.module('sharingsmiles', []).controller('AboutusController',AboutusController);
 
-function AboutusController($scope){
+function AboutusController($scope,$http){
 	// iPad and iPod detection  
   var isiPad = function(){
     return (navigator.platform.indexOf("iPad") != -1);
@@ -55,61 +55,7 @@ function closeMenuMobile (){
 }
 
 
-  // Page Nav
-  var clickMenu = function() {
-
-		$('a:not([class="external"])').click(function(event){
-			var section = $(this).data('nav-section'),
-				navbar = $('#navbar');
-		    $('html, body').animate({
-		        scrollTop: $('[data-section="' + section + '"]').offset().top
-		    }, 500);
-
-		    if ( navbar.is(':visible')) {
-		    	navbar.removeClass('in');
-		    	navbar.attr('aria-expanded', 'false');
-		    	$('.js-fh5co-nav-toggle').removeClass('active');
-		    }
-
-		    event.preventDefault();
-		    return false;
-		});
-
-	};
-
-  // Reflect scrolling in navigation
-  var navActive = function(section) {
-
-    var $el = $('#navbar > ul');
-    $el.find('li').removeClass('active');
-    $el.each(function(){
-      $(this).find('a[data-nav-section="'+section+'"]').closest('li').addClass('active');
-    });
-
-  };
-  var navigationSection = function() {
-
-    var $section = $('div[data-section]');
-    
-    $section.waypoint(function(direction) {
-        if (direction === 'down') {
-          navActive($(this.element).data('section'));
-        
-        }
-    }, {
-        offset: '150px'
-    });
-
-    $section.waypoint(function(direction) {
-        if (direction === 'up') {
-          navActive($(this.element).data('section'));
-        }
-    }, {
-        offset: function() { return -$(this.element).height() + 155; }
-    });
-
-  };
-
+  
 
   // Window Scroll
   var windowScroll = function() {
@@ -136,22 +82,142 @@ function closeMenuMobile (){
 
 
 
-  
+   $scope.formData = {};
 
+        // process the form
+        $scope.processForm = function () {
+            $http({
+                method: 'POST',
+                url: 'index.php',
+                data: $.param($scope.formData),  // pass in data as strings
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+            })
+                .success(function (data) {
+                    console.log(data);
 
-  
+                    if (!data.success) {
+                        // if not successful, bind errors to error variables
+                        $scope.errorName = data.errors.name;
+                        $scope.errorSuperhero = data.errors.superheroAlias;
+                    } 
+                    else {
+                        // if successful, bind success message to message
+                        $scope.message = data.message;
+                    
+                    }
+                });
+
+        };
+
+  var loader = function(){
+    $( "#loader" ).delay(2000).fadeOut(400, function(){
+        $( "body" ).fadeIn(400);
+    });  
+};
+//Setting the height to the window height
+$(document).ready(function() {
+
+  //variables
+  var name = $(".nombre input");
+  email = $(".correo input");
+  comment = $(".palabras textarea");
+  modal_name = $(".modal span");
+  modal = $(".modal");
+
+  //hide modal
+  modal.hide();
+
+  //check if name is empty
+  name.on("blur", function() {
+    var $this = $(this);
+    if ($this.val().length === 0 ||
+      $this.val() === "Name") {
+      $this.addClass("invalid");
+      $this.val("Name");
+    } else {
+      $this.addClass("valid");
+    }
+  });
+
+  //check if email is empty
+  email.on("blur", function() {
+    var $this = $(this);
+    if ($this.val().length === 0 ||
+      $this.val() === "Email") {
+      $this.addClass("invalid");
+    }
+  });
+
+  //check if email is valid
+  email.on("blur", function() {
+    var $this = $(this);
+    if ($this.val().indexOf("." && "@") > -1) {
+      $this.addClass("valid");
+    } else {
+      $this.addClass("invalid");
+      $this.val("Email");
+    }
+  });
+
+  //check if textarea is empty
+  comment.on("blur", function() {
+    var $this = $(this);
+    if ($this.val() === "") {
+      $this.addClass("invalid");
+      $this.val("Comments");
+    } else {
+      $this.addClass("valid");
+    }
+  });
+
+  //clear inputs on click
+  $(".input").on("focus", function() {
+    $(this).val("");
+  });
+
+  //show modal when inputs are valid and button
+  //is clicked
+  $(".submit").on("click", function() {
+    if (name.val() !== "Name" && name.val() !== "" &&
+      email.val() !== "Email" &&
+      email.val() !== "" &&
+      comment.val() !== "Comments" &&
+      comment.val() !== "") {
+
+      //remove invalid/valid classes
+      name.removeClass().addClass("input");
+      email.removeClass().addClass("input");
+      comment.removeClass().addClass("input");
+
+      //modal box
+      modal_name.text(name.val());
+      modal.slideDown("medium")
+        .delay(2000).slideUp("fast");
+
+      //put default text back
+      name.val("Name");
+      email.val("Email");
+      comment.val("Comments");
+
+      return false;
+
+    } else {
+
+      return false;
+    }
+  });
+
+});
   
 
   // Document on load.
   $(function(){
+    loader();
   	burgerMenu();
     windowScroll();
-    navigationSection();
-    navActive();
-    clickMenu();
+       
 
     
   });
-
-
  }
+

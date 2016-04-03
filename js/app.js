@@ -8,26 +8,28 @@
         $routeProvider
             .when('/home', {
                 controller: 'HomeController',
-                templateUrl: 'templates/home.html'
+                templateUrl: 'templates/home.html',
+                reloadOnSearch: false
                
             })
             .when('/aboutus', {
                 controller: 'AboutusController',
-                templateUrl: 'templates/aboutus.html'
+                templateUrl: 'templates/aboutus.html',
+                reloadOnSearch: false
+
                
             })
             
             .when('/blog', {
-                  controller: 'BlogController',
+                  controller: 'ExController',
               templateUrl: 'templates/blog.html'
+
             
                 
             })
-
-            
+         
             .otherwise({ redirectTo: '/home' });
     }
 
-    
-
+ 
 })();

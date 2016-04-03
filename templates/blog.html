@@ -1,18 +1,17 @@
-<!--- menu-->
+<!-- 
+
  <header role="banner" id="fh5co-header">
       <div class="container">
-        <!-- <div class="row"> -->
+    
           <nav class="navbar navbar-default">
             <div class="navbar-header">
-              <!-- Mobile Toggle Menu Button -->
+            
           <a id ="menubtn"class="js-fh5co-nav-toggle fh5co-nav-toggle"  ><i></i></a>
-                <a class="navbar-brand" href="index.html">ZenRun</a> 
+                <a class="navbar-brand" href="index.html">ImpactRun</a> 
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li ><a href="#/home" ><span>Home</span></a></li>
-                <li><a href="#/home" ><span>How it works</span></a></li>
-                 <li><a href="#/home" data-nav-section="JoinUs"><span>Partnerships</span></a></li>
+                <li><a href="#/home" ><span>Home</span></a></li>
                 <li><a href="#/blog" data-nav-section="blog"><span>Blog</span></a></li>
                 <li><a href="#/aboutus" ><span>Aboutus</span></a></li>
                
@@ -20,18 +19,19 @@
               </ul>
             </div>
           </nav>
-        <!-- </div> -->
+   
       </div>
   </header>
+<div class="applink">DOWNLOAD OUR APP ! <i class="fa fa-angle-right"></i>
+</div>
 
- <!-- continar -->
  <div class="blogheader">
      <div id=" blog" data-section="blog">   
     <div class="container">
         <div class="col-md-12 section-heading text-center blog">
           <h2 class="blog header">Our Blog</h2>
           <div class="lineforaboutus"></div>
-          <h3 class="partnershipdesc" > Here are our some curated content</h3>
+          <h3 class="partnershipdesc sec" > Covers content that inspires us, our work, our philosohy and other cool updates.</h3>
         </div>
     </div>
 </div>
@@ -60,8 +60,6 @@
         <div class="wrapper">
             <ul>
                 <li class="first"><span></span><button id="bt-fechar-menu"><a class="arrow"></a></button></li>
-                <button class="appledwnlod"><i class="fa fa-apple"></i>Download App!</button>
-                <button class="androiddwnlod"><i class="fa fa-android"></i>Download App!</button>
                 <li><a href="#/home">Home<i class="fa fa-angle-right"></i></a></li>
                 <li><a href="#/blog">Blog<i class="fa fa-angle-right"></i></a></li>
                 <li><a href="#/aboutus">Aboutus<i class="fa fa-angle-right"></i></a></li>
@@ -76,9 +74,8 @@
 
 
 <ul id="nav">
-    <li ><a class="active">104 Years And Running
-      
-     <i class="fa fa-angle-double-down"></i>
+    <li ><a class="active">104 Years And Running<i class="fa fa-angle-double-down"></i><br>
+        <h4>A Salute to Fauja Singh! The multi-record holding young marathoner.</h4>
     </a>
     <section>
         <h2 class="headlinemob">A Salute to Fauja Singh! The multi-record holding young marathoner.</h2>
@@ -90,7 +87,8 @@
   </li>
   <li ng-repeat="blog in blogs">
 
-    <a >{{blog.title}}<i class="fa fa-angle-double-down"></i></a>
+    <a >{{blog.title}}<i class="fa fa-angle-double-down"></i><br>
+        <h4>{{blog.headline}}</h4></a>
 
     <section>
         <h2 class="headlinemob">{{blog.headline}}</h2>
@@ -103,3 +101,33 @@
 
 
 
+ --> 
+
+<div class="form">
+
+    <div class="modal">
+      <p>Thanks for talking to us, <span>generic user</span>. We'll get back with you as soon as we can.
+      </p>
+    </div>
+    <form name="user">
+
+      <h1>Talk to us</h1>
+
+      <div class="nombre">
+        <input type="text" name="name" class="input" value="Name">
+      </div>
+      <!--.nombre-->
+
+      <div class="correo">
+        <input type="text" name="email" class="input" value="Email">
+      </div>
+      <!--.correo-->
+
+      <div class="palabras">
+        <textarea name="comments" class="input">Comments</textarea>
+      </div>
+      <!--.palabras-->
+
+      <input type="submit" value="submit" class="submit">
+    </form>
+</div>
