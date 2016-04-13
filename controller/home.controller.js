@@ -2,9 +2,18 @@
 
 angular.module('sharingsmiles', []).controller('HomeController',HomeController);
 
-function HomeController($scope,$routeParams){
+function HomeController($scope,$routeParams,$http){
 	
-  
+  $scope.resources = [
+            '/images/videorun.mp4',
+            '*.ogv',
+            '*.swf'
+        ];
+
+        $scope.muted = true;
+        $scope.zIndex = '1';
+        $scope.playInfo = {};
+        $scope.pausePlay = true;
 // iPad and iPod detection  
   var isiPad = function(){
     return (navigator.platform.indexOf("iPad") != -1);
@@ -84,7 +93,11 @@ $('.cd-popup-second').addClass('is-visible');
       }
     });
 });
-
+$('.button, .overlay').on('click', function(e) {
+  e.preventDefault();
+  $('.overlay').toggleClass('active');
+  $('').toggleClass('smaller');
+});
   
 
 
@@ -120,29 +133,6 @@ function closeMenuMobile (){
         });
     });
 };
-
-
-  // Page Nav
-   var clickMenu = function() {
-
-		$('a:not([class="external"])').click(function(event){
-			var section = $(this).data('nav-section'),
-				navbar = $('#navbar');
-		    $('html, body').animate({
-		        scrollTop: $('[data-section="' + section + '"]').offset().top
-		    }, 500);
-
-		    if ( navbar.is(':visible')) {
-		    	navbar.removeClass('in');
-		    	navbar.attr('aria-expanded', 'false');
-		    	$('.js-fh5co-nav-toggle').removeClass('active');
-		    }
-
-		    event.preventDefault();
-		    return false;
-		});
-
-	};
 
 
 
@@ -203,7 +193,7 @@ function closeMenuMobile (){
  
   
    var loader = function(){
-    $( "#loader" ).delay(2000).fadeOut(400, function(){
+    $( "#loader" ).delay(4000.50).fadeOut(400, function(){
         $( "body" ).fadeIn(400);
     });  
 };
@@ -349,10 +339,7 @@ $(document).ready(function() {
   });
 
   //clear inputs on click
-  $(".input").on("focus", function() {
-    $(this).val("");
-  });
-
+ 
   //show modal when inputs are valid and button
   //is clicked
   $(".submit").on("click", function() {
@@ -372,10 +359,8 @@ $(document).ready(function() {
       modal.slideDown("medium")
         .delay(2000).slideUp("fast");
 
-      //put default text back
-      name.val("Name");
-      email.val("Email");
-      comment.val("Comments");
+
+     
 
       return false;
 
@@ -387,14 +372,16 @@ $(document).ready(function() {
 
 });
 
+$(document).ready(function() {
+  
+});
   // Document on load.
   $(function(){
     loader();
     burgerMenu();
-     clickMenu ();
     windowScroll();
 
-    clickMenu ();
+
     
 
   });

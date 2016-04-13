@@ -73,8 +73,8 @@
                </div>
                <div class="fh5co-press-text">
                   <h2 class="h2 fh5co-press-title">Ishan Nadkarni<span class="fh5co-border"></span></h2>
-                  <h3>CEO</h3>
-                  <h3>Mind, Voice and Plan.</h3>
+                  <h3>IIT Bombay 2013</h3>
+                  <h3>Mind, Voice and Plan</h3>
                </div>
             </div>
             <!-- Press Item -->
@@ -89,8 +89,8 @@
                </div>
                <div class="fh5co-press-text">
                   <h2 class="h2 fh5co-press-title">Piyush Nagle<span class="fh5co-border"></span></h2>
-                  <h3>CTO</h3>
-                  <h3>Structure, Backend and Dev-Ops.</h3>
+                  <h3>IIT Bombay 2012</h3>
+                  <h3>Structure, Backend and Dev-Ops</h3>
                </div>
             </div>
             <!-- Press Item -->
@@ -105,8 +105,8 @@
                </div>
                <div class="fh5co-press-text">
                   <h2 class="h2 fh5co-press-title">Gaurav Mehra<span class="fh5co-border"></span></h2>
-                  <h3>CSO</h3>
-                  <h3>Strategy, Partnerships and Operations.</h3>
+                  <h3>IIT Bombay 2012</h3>
+                  <h3>Strategy, Partnerships and Operations</h3>
                </div>
             </div>
             <!-- Press Item -->
@@ -121,8 +121,8 @@
                </div>
                <div class="fh5co-press-text">
                   <h2 class="h2 fh5co-press-title">Nikhil Khendelwal<span class="fh5co-border"></span></h2>
-                  <h3>CDO</h3>
-                  <h3>Design, Aesthetics and UI.</h3>
+                  <h3>IIT Bombay 2013</h3>
+                  <h3>Design, Aesthetics and UI</h3>
                </div>
             </div>
             <!-- Press Item -->
@@ -137,8 +137,8 @@
                </div>
                <div class="fh5co-press-text">
                   <h2 class="h2 fh5co-press-title">Akash Nautiyal<span class="fh5co-border"></span></h2>
-                  <h3>Coder</h3>
-                  <h3>Genius, IoS and Frontend.</h3>
+                  <h3>Self Made Coder</h3>
+                  <h3>Genius, IoS and Frontend</h3>
                </div>
             </div>
             <!-- Press Item -->
@@ -153,8 +153,8 @@
                </div>
                <div class="fh5co-press-text">
                   <h2 class="h2 fh5co-press-title">Ankit Maheshwari<span class="fh5co-border"></span></h2>
-                  <h3>Chief Mentor</h3>
-                  <h3>Android, Algorithm and Adviser.</h3>
+                  <h3>IIT Delhi 2011</h3>
+                  <h3>Android, Algorithm and Advisor</h3>
                </div>
             </div>
             <!-- Press Item -->
@@ -182,46 +182,47 @@
     <div class="contactform">
 
     <div class="modal">
-      <p>Thanks for talking to us, <span>generic user</span>. We'll get back with you as soon as we can.
+      <p>Thanks for writing to us, <span>generic user</span>. We'll get back with you as soon as we can.
       </p>
     </div>
-    <form name="user" class="contact">
-
-      <h1>Talk to us</h1>
-
-      <div class="nombre">
-        <input type="text" name="name" class="input" value="Name">
-      </div>
-      <!--.nombre-->
-
-      <div class="correo">
-        <input type="text" name="email" class="input" value="Email">
-      </div>
-      <!--.correo-->
-
-      <div class="palabras">
-        <textarea id="textarea" name="comments" class="input">Comments</textarea>
-      </div>
-      <!--.palabras-->
-
-      <input type="submit" value="submit" class="submit">
-    </form>
+    <div id="messages" class="well" ng-show="message"></div>
+      <!-- FORM -->
+      <div class="formwraper">
+      <form ng-submit="processForm()">
+         <!-- NAME -->
+         <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+            <input type="text" name="name" class="form-control" placeholder="Name" ng-model="formData.name">
+            <span class="help-block" ng-show="errorName"></span>
+         </div>
+         <div id="superhero-group" class="form-group" ng-class="{ 'has-error' : errorSuperhero }">
+            <input type="email" name="superheroAlias" class="form-control" placeholder="brucewayne@batman.com" ng-model="formData.superheroAlias">
+            <span class="help-block" ng-show="errorSuperhero"></span>
+         </div>
+         <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+            <textarea  rows="5" cols="50" class="form-control" placeholder="write your feedback" ng-model="formData.content"></textarea>
+            <span class="help-block" ng-show="errorContent"></span>
+         </div>
+         <button type="submit" class="btn btn-success btn-lg btn-block">
+         <span class="fa fa-paper-plane-o"></span> Submit!
+         </button>
+      </form>
   </div>
 
-   <div class="col-sm-12">
-      <div class="copyright-text text-center">
-         <p>&copy; Green Freedom Pvt Ltd - 2016. All Rights Reserved.</p>
-         <p>Designed by me.</p>
-      </div>
+   <div class="container">
+      <div class="row row-bottom-padded-sm">
+         <div class="col-md-12">
+            <p>&copy; Green Freedom Pvt Ltd - 2016. All Rights Reserved.</p>
+         <p>Designed with love by an ImpactRunner.</p>
+         <p>Happy running!</p>
+         </div>
+      </div> 
    </div>
-</div>
 <div class="col-xs-show col-sm-show menu-mobile">
    <div id="wrapper-menu-mobile">
       <div class="wrapper">
          <ul>
             <li class="first"><span></span><button id="bt-fechar-menu"><a class="arrow"></a></button></li>
             <li><a href="#/home">Home<i class="fa fa-angle-right"></i></a></li>
-            <li><a href="#/blog">Blog<i class="fa fa-angle-right"></i></a></li>
             <li><a href="#/aboutus">About Us<i class="fa fa-angle-right"></i></a></li>
             <li><a href="#">Settings<i class="fa fa-angle-right"></i></a></li>
          </ul>
@@ -229,3 +230,5 @@
       <div class="block-menu-mobile"></div>
    </div>
 </div>
+
+

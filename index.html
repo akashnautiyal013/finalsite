@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
  <link rel="stylesheet" type="text/css" href="css/animate.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="node_modules/angular-vidbg/dist/vidBg.css">
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css
 ">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
@@ -37,22 +38,19 @@
 <body>
 
  <div id="loader">
+    
   <div class="loaderwraper">
-      <div id="load">
-  <div>G</div>
-  <div>N</div>
-  <div>I</div>
-  <div>D</div>
-  <div>A</div>
-  <div>O</div>
-  <div>L</div>
-</div>
-        <h2 class="loaderh2"> Best way getting healthy.. </h2>
+    
+  <div class="loadingmessage">
+   
+   <p class="message">The best way of getting healthy &nbsp;<span></span>
+   </p>  
+  </div>
  </div>
 </div>
-   
-   <div ng-view></div>
-      
+
+
+ <div ng-view>
   
    <script src="https://code.angularjs.org/1.2.20/angular.js"></script>
    <script src="https://code.angularjs.org/1.2.20/angular-route.js"></script>
@@ -70,9 +68,28 @@
   <script type="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script src="//cdn.rawgit.com/tonystar/bootstrap-hover-tabs/master/bootstrap-hover-tabs.js"></script>
   
+<script type="text/javascript">function animatethis(targetElement, speed) {
+    $(targetElement).animate({ marginLeft: "+=250px"},
+    {
+        duration: speed,
+        complete: function ()
+        {
+            targetElement.animate({ marginLeft: "=250px" },
+            {
+                duration: speed,
+                complete: function ()
+                {
+                    animatethis(targetElement, speed);
+                }
+            });
+        }
+    });
+};
 
+animatethis($('#q1'), 5000);</script>
    <script src="controller/home.controller.js"></script>
    <script src="controller/example.js"></script>
+    <script src="/node_modules/angular-vidbg/dist/vidBg.js"></script>
    <script src="controller/aboutus.controller.js"></script>
   <script src="js/app.js"></script>
 

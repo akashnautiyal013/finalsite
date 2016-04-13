@@ -8,6 +8,7 @@
             <!-- Mobile Toggle Menu Button -->
             <a href="#" id ="menubtn"class="js-fh5co-nav-toggle fh5co-nav-toggle"  ><i></i></a>
             <a class="navbar-brand" href="index.html">ImpactRun</a> 
+            <br><p>The fitness app with a Purpose</p>
          </div>
          <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -22,6 +23,11 @@
 </header>
 <section class="base" id="one">
  <section class="head img_container" data-section="home" id="fh5co-about-us" >
+ <div class="background-video-container">
+  <vid-bg resources="resources"full-screen="fullScreen" muted="muted" z-index="zIndex" play-info="playInfo" pause-play="pausePlay"></vid-bg>
+
+  </div>
+
    <div class="overlay"></div>
    <header class="fader">
       <div class="col-md-8 col-md-offset-2 text-center">
@@ -42,7 +48,7 @@
                      <div style="margin:0 auto; width:72%;" >
                         <!-- <span class="spanone" ng-show="registration.phone.$error.required || registration.phone.$error.number" style = "     margin-right: -54%;height:67px;width: 47%;background: rgba(255, 255, 255, 0.02);border-bottom: 2px solid white;z-index: 10;"></span>
                         <span  class="spamtwo" ng-show="((registration.phone.$error.minlength || registration.phone.$error.maxlength) && registration.phone.$dirty) " style= "    margin-right: -54%;height:67px;width: 47%;background: rgba(255, 255, 255, 0.02);border-bottom: 2px solid red;z-index: 10;"></span> -->
-                        <input class="getlink" id="phone-number-input"  type="text"  ng-minlength="10" maxlength="10"  id="inputPhone" name="phone" placeholder="enter your mobile number." ng-model="user.phone" ng-required="true"  >
+                        <input class="getlink" id="phone-number-input"  type="text"  ng-minlength="10" maxlength="10"  id="inputPhone" name="phone" placeholder="Enter your mobile number." ng-model="user.phone" ng-required="true"  >
 
 
                           <label class="valid" for="phone-number">
@@ -96,19 +102,13 @@
       <div class="row row-bottom-padded-lg" id="about-us">
          <div class="col-md-12 section-heading text-center">
             <h2 >How it Works</h2>
-            <div class="row">
-               <div class="col-md-8 col-md-offset-2 homeappslide">
-                  <h3>Our sponsors share an amount corresponding to the total distance run for the campaigns.<br>
-                     More the distance, higher the impact!
-                  </h3>
-               </div>
-            </div>
+               
          </div>
          <div class="col-md-8 ">
             <div class="tab-content well">
                <div class="tab-pane active" id="tab-1"><img src="images/home.png"></div>
-               <div class="tab-pane" id="tab-2"><img src="images/service2.png"></div>
-               <div class="tab-pane" id="tab-3"><img src="images/lastservice.png"> </div>
+               <div class="tab-pane" id="tab-2"><img src="images/lastservice.png"></div>
+               <div class="tab-pane" id="tab-3"><img src="images/service2.png"> </div>
             </div>
          </div>
          <div class="col-md-4 appservices">
@@ -116,8 +116,8 @@
                <li class="active">
                   <a class="out" href="#tab-1" data-toggle="tab">
                      <div class="appfeaturewrap">
-                        <h2 class="appfeatues">Choose a Cause</h2>
-                        <p class="featurep">you wish to support.</p>
+                        <h2 class="appfeatues">Select a Cause</h2>
+                        <p class="featurep">close to your heart</p>
                      </div>
                   </a>
                </li>
@@ -125,32 +125,39 @@
                   <a  class="out" href="#tab-2" data-toggle="tab">
                      <div class="appfeaturewrap">
                         <h2 class="appfeatues">Begin your Run</h2>
-                        <p class="featurep">and begin the impact.</p>
+                        <p class="featurep">and get fitter</p>
                      </div>
                   </a>
                </li>
                <li>
                   <a class="out" href="#tab-3" data-toggle="tab">
                      <div class="appfeaturewrap">
-                        <h2 class="appfeatues">Share with friends</h2>
-                        <p class="featurep">Spread the word.</p>
+                        <h2 class="appfeatues">Raise Funds </h2>
+                        <p class="featurep">and impact lives</p>
                      </div>
                   </a>
                </li>
             </ul>
          </div>
+         <div class="col-md-8 col-md-offset-2 homeappslide">
+                  <h3>Corporates sponsor our cause-campaigns.<br> Your daily jogs on ImpactRun release the sponsored amount.<br> Our partners then execute the campaigns.<br>
+                     More the distance, higher the impact!
+                  </h3>
+               </div>
       </div>
    </div>
 </div>
 
 </section>
 <section class="base" id="three">
+
     <div id="fh5co-testimonials" data-section="JoinUs">
 <div class="overlaysec"></div>
 <div class="container">
+
    <div class="col-md-12 section-heading text-center">
       <h2>Partner with us</h2>
-      <h3 class="partnershipdesc sec" > Join our impact community as a</h3>
+      <h3 class="partnershipdesc sec" > Join our impact community as an</h3>
       <div class="row">
          <div class="flex-row" style="justify-content: center">
             
@@ -160,87 +167,95 @@
 <!-- cd-popup -->
             
             <div class="containerpopup">
-                 <a href="#0" class="cd-popup-trigger">Runner</a>
+                 <a href="#0" class="cd-popup-trigger">Impact Runner</a>
 
                 <div class="cd-popup" role="alert">
                   <div class="cd-popup-container">
-                  <form>
-                  <div class="form-group">
-                     <label for="XXXXXXXX" class="control-label">Company Name</label>
-                     <input placeholder="Sharing Smiles" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Email ID</label>
-                     <input placeholder="changefor@thebetter.com" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Phone No.</label>
-                     <input placeholder="89XXXXXXXX" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Your Message</label>
-                     <textarea rows="4" placeholder="Enter message here. We would love to partner with you!" type="text" class="form-control" id="recipient-name" style="text-align:center;"></textarea>
-                  </div>
-                  <button  class="btn btn-primary enterprise">Submit</button>
-                    </form>
-
-                  <ul class="cd-buttons">
-                    <li><a href="#0">Yes</a></li>
-                     <li><a href="#0">No</a></li>
-                 </ul>
+                    <div class="formpopwrap">
+                  <form ng-submit="processForm()">
+         <!-- NAME -->
+         <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+            <input type="text" name="name" class="form-control" placeholder="Name" ng-model="formData.name">
+            <span class="help-block" ng-show="errorName"></span>
+         </div>
+         <div id="superhero-group" class="form-group" ng-class="{ 'has-error' : errorSuperhero }">
+            <input type="email" name="superheroAlias" class="form-control" placeholder="brucewayne@batman.com" ng-model="formData.superheroAlias">
+            <span class="help-block" ng-show="errorSuperhero"></span>
+         </div>
+         <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+            <textarea  rows="5" cols="50" class="form-control" placeholder="message" ng-model="formData.content"></textarea>
+            <span class="help-block" ng-show="errorContent"></span>
+         </div>
+         <button type="submit" class="btn btn-success btn-lg btn-block">
+         <span class="fa fa-paper-plane-o"></span> Submit!
+         </button>
+      </form>
                  <a href="#0" class="cd-popup-close img-replace">Close</a>
+               </div>
                 </div>
-  <!-- cd-popup-container -->
+
             </div>
-<!-- cd-popup -->
+
          </div>
             <div class="containerpopup">
-                 <a href="#1" class="cd-popup-trigger-first">Invester</a>
+                 <a href="#1" class="cd-popup-trigger-first">Corporate Sponsor</a>
 
                 <div class="cd-popup-first" role="alert">
                   <div class="cd-popup-container">
-                  <form>
-                  <div class="form-group">
-                     <label for="XXXXXXXX" class="control-label">Company Name</label>
-                     <input placeholder="Sharing Smiles" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Email ID</label>
-                     <input placeholder="changefor@thebetter.com" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Phone No.</label>
-                     <input placeholder="89XXXXXXXX" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Your Message</label>
-                     <textarea rows="4" placeholder="Enter message here. We would love to partner with you!" type="text" class="form-control" id="recipient-name" style="text-align:center;"></textarea>
-                  </div>
-                  <button  class="btn btn-primary enterprise">Submit</button>
-                    </form>
+                       <div class="formpopwrap">
+                  <form ng-submit="processForm()">
+         <!-- NAME -->
+         <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+            <input type="text" name="name" class="form-control" placeholder="Name" ng-model="formData.name">
+            <span class="help-block" ng-show="errorName"></span>
+         </div>
+         <div id="superhero-group" class="form-group" ng-class="{ 'has-error' : errorSuperhero }">
+            <input type="email" name="superheroAlias" class="form-control" placeholder="brucewayne@batman.com" ng-model="formData.superheroAlias">
+            <span class="help-block" ng-show="errorSuperhero"></span>
+         </div>
+         <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+            <textarea  rows="5" cols="50" class="form-control" placeholder="Message" ng-model="formData.content"></textarea>
+            <span class="help-block" ng-show="errorContent"></span>
+         </div>
+         <button type="submit" class="btn btn-success btn-lg btn-block">
+         <span class="fa fa-paper-plane-o"></span> Submit!
+         </button>
+      </form>
+                 <a href="#0" class="cd-popup-close img-replace">Close</a>
+               </div>
 
-                  <ul class="cd-buttons">
-                    <li><a href="#1">Yes</a></li>
-                     <li><a href="#1">No</a></li>
-                 </ul>
-                 <a href="#1" class="cd-popup-close img-replace">Close</a>
                 </div>
   <!-- cd-popup-container -->
             </div>
 <!-- cd-popup -->
          </div>
              <div class="containerpopup">
-                 <a href="#2" class="cd-popup-trigger-second">Enterprices</a>
+                 <a href="#2" class="cd-popup-trigger-second">Social Enterprise</a>
 
                 <div class="cd-popup-second" role="alert">
                   <div class="cd-popup-container">
-                  <form>
-                  <div class="form-group">
-                     <label for="XXXXXXXX" class="control-label">Company Name</label>
-                     <input placeholder="Sharing Smiles" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Email ID</label>
-                     <input placeholder="changefor@thebetter.com" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Phone No.</label>
-                     <input placeholder="89XXXXXXXX" type="text" class="form-control" id="recipient-name" style="text-align:center;">
-                     <label for="XXXXXXXX" class="control-label">Your Message</label>
-                     <textarea rows="4" placeholder="Enter message here. We would love to partner with you!" type="text" class="form-control" id="recipient-name" style="text-align:center;"></textarea>
-                  </div>
-                  <button  class="btn btn-primary enterprise">Submit</button>
-                    </form>
-
-                  <ul class="cd-buttons">
-                    <li><a href="#2">Yes</a></li>
-                     <li><a href="#2">No</a></li>
-                 </ul>
+                       <div class="formpopwrap">
+                  <form ng-submit="processForm()">
+         <!-- NAME -->
+         <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+            <input type="text" name="name" class="form-control" placeholder="Name" ng-model="formData.name">
+            <span class="help-block" ng-show="errorName"></span>
+         </div>
+         <div id="superhero-group" class="form-group" ng-class="{ 'has-error' : errorSuperhero }">
+            <input type="email" name="superheroAlias" class="form-control" placeholder="brucewayne@batman.com" ng-model="formData.superheroAlias">
+            <span class="help-block" ng-show="errorSuperhero"></span>
+         </div>
+         <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+            <textarea  rows="5" cols="50" class="form-control" placeholder="message" ng-model="formData.content"></textarea>
+            <span class="help-block" ng-show="errorContent"></span>
+         </div>
+         <button type="submit" class="btn btn-success btn-lg btn-block">
+         <span class="fa fa-paper-plane-o"></span> Submit!
+         </button>
+      </form>
                  <a href="#0" class="cd-popup-close img-replace">Close</a>
+               </div>
+                
                 </div>
   <!-- cd-popup-container -->
             </div>
@@ -305,41 +320,52 @@
   <div class="contactform">
 
     <div class="modal">
-      <p>Thanks for talking to us, <span>generic user</span>. We'll get back with you as soon as we can.
+      <p>Thanks for write to us, <span>generic user</span>. We'll get back to you as soon as we can.
       </p>
     </div>
-    <form name="user" class="contact">
-
-      <h1>Talk to us</h1>
-
-      <div class="nombre">
-        <input type="text" name="name" class="input" value="Name">
-      </div>
-      <!--.nombre-->
-
-      <div class="correo">
-        <input type="text" name="email" class="input" value="Email">
-      </div>
-      <!--.correo-->
-
-      <div class="palabras">
-        <textarea id="textarea" name="comments" class="input">Comments</textarea>
-      </div>
-      <!--.palabras-->
-
-      <input type="submit" value="submit" class="submit">
-    </form>
+         <div id="messages" class="well" ng-show="message"></div>
+      <!-- FORM -->
+      <div class="formwraper">
+      <form ng-submit="processForm()">
+         <!-- NAME -->
+         <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+            <input type="text" name="name" class="form-control" placeholder="Name" ng-model="formData.name">
+            <span class="help-block" ng-show="errorName"></span>
+         </div>
+         <div id="superhero-group" class="form-group" ng-class="{ 'has-error' : errorSuperhero }">
+            <input type="email" name="superheroAlias" class="form-control" placeholder="brucewayne@batman.com" ng-model="formData.superheroAlias">
+            <span class="help-block" ng-show="errorSuperhero"></span>
+         </div>
+         <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+            <textarea  rows="5" cols="50" class="form-control" placeholder="write your feedback" ng-model="formData.content"></textarea>
+            <span class="help-block" ng-show="errorContent"></span>
+         </div>
+         <button type="submit" class="btn btn-success btn-lg btn-block">
+         <span class="fa fa-paper-plane-o"></span> Submit!
+         </button>
+      </form>
   </div>
 </section>
+
+  
+
 
    <div class="container">
       <div class="row row-bottom-padded-sm">
          <div class="col-md-12">
-            <p class="copyright text-center">&copy; Green Freedom Pvt Ltd - 2016. All Rights Reserved. <br>Happy running!</p>
+            <p>&copy; Green Freedom Pvt Ltd - 2016. All Rights Reserved.</p>
+         <p>Designed with love by an ImpactRunner.</p>
+         <p>Happy running!</p>
          </div>
       </div>
    
    </div>
+
+
+
+
+
+
 
 <div class="col-xs-show col-sm-show menu-mobile">
    <div id="wrapper-menu-mobile">
@@ -348,7 +374,6 @@
             <li class="first"><span></span><button id="bt-fechar-menu"><a class="arrow"></a></button></li>
             <!-- heirarchy: #cuboid > form > div*4(cuboid faces) -->
             <li><a href="#/home">Home<i class="fa fa-angle-right"></i></a></li>
-            <li><a href="#/blog">Blog<i class="fa fa-angle-right"></i></a></li>
             <li><a href="#/aboutus">Aboutus<i class="fa fa-angle-right"></i></a></li>
             <li><a href="#">Settings<i class="fa fa-angle-right"></i></a></li>
          </ul>
