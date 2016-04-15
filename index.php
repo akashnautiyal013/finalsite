@@ -1,40 +1,47 @@
+
+
+
 <?php
 require_once 'phpmailer/PHPMailerAutoload.php';
-
-if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputSubject']) && isset($_POST['inputMessage'])) {
-
-    //check if any of the inputs are empty
-    if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputSubject']) || empty($_POST['inputMessage'])) {
-        $data = array('success' => false, 'message' => 'Please fill out the form completely.');
-        echo json_encode($data);
-        exit;
+require_once('class.phpmailer.php');
+$errors = array();      // array to hold validation errors
+$data = array();        // array to pass back data
+// validate the variables ======================================================
+    if (empty($_POST['name']))
+        $errors['name'] = 'Name is required.';
+    if (empty($_POST['superheroAlias']))
+        $errors['superheroAlias'] = 'E-mail is required.';
+    if (empty($_POST['content']))
+        $errors['content'] = 'Message is required.';
+// return a response ===========================================================
+    // response if there are errors
+    if ( ! empty($errors)) {
+        // if there are items in our errors array, return those errors
+        $data['success'] = false;
+        $data['errors']  = $errors;
+        
+    } else {
+        $mail = new PHPMailer(); // create a new object
+        $mail->IsSMTP(); // enable SMTP
+        $mail->SMTPAuth = true; // authentication enabled
+        $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465; // or 587
+        $mail->IsHTML(true);
+        $mail->Username = ""; //Email that you setup
+        $mail->Password = ""; // Password
+        $mail->Subject = "Y-Web Contact mail from " . $_POST['name'] . ", e-mail: " .$_POST['superheroAlias']. "";
+        $mail->Body = $_POST['content'];
+        $mail->AddAddress("akash.nautiyal013@gmail.com"); //Pass the e-mail that you setup
+         if(!$mail->Send())
+            {
+                    echo "Mailer Error: " . $mail->ErrorInfo;
+            }
+            else
+            {
+                $data['success'] = true;
+                $data['message'] = 'Thank you for sending e-mail.';
+            }
+        
     }
-
-    //create an instance of PHPMailer
-    $mail = new PHPMailer();
-
-    $mail->From = $_POST['inputEmail'];
-    $mail->FromName = $_POST['inputName'];
-    $mail->AddAddress('akash.nautiyal013@gmail.com'); //recipient 
-    $mail->Subject = $_POST['message from'+'inputName'];
-    $mail->Body = "Name: " . $_POST['inputName'] . "\r\n\r\nMessage: " . stripslashes($_POST['inputMessage']);
-
-    if (isset($_POST['ref'])) {
-        $mail->Body .= "\r\n\r\nRef: " . $_POST['ref'];
-    }
-
-    if(!$mail->send()) {
-        $data = array('success' => false, 'message' => 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
-        echo json_encode($data);
-        exit;
-    }
-
-    $data = array('success' => true, 'message' => 'Thanks! We have received your message.');
     echo json_encode($data);
-
-} else {
-
-    $data = array('success' => false, 'message' => 'Please fill out the form completely.');
-    echo json_encode($data);
-
-}
