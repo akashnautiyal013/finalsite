@@ -54,7 +54,7 @@
         $message = $data->message;
 
         if ( $name != '' && $email != '' && $message != '' ) {
-            $mailTo = 'akash.nautiyal013@gmail.com';
+            $mailTo = 'example@mydomain.com';
             $subject = 'New contact form submission';
             $body  = 'From: ' . $name . "\n";
             $body .= 'Email: ' . $email . "\n";
