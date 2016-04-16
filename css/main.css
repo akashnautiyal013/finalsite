@@ -1128,7 +1128,7 @@ div#slide.item {
     position: relative;
 }
 .overlay {
-    height: 102%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
