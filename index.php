@@ -3,7 +3,7 @@
 
 <?php
 require_once 'phpmailer/PHPMailerAutoload.php';
-require_once('class.phpmailer.php');
+require_once('phpmailer/class.phpmailer.php');
 $errors = array();      // array to hold validation errors
 $data = array();        // array to pass back data
 // validate the variables ======================================================
