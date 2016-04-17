@@ -2,6 +2,12 @@
 angular.module('sharingsmiles', []).controller('AboutusController',AboutusController);
 
 function AboutusController($scope,$http){
+  $(document).scrollTop(0);
+    var loader = function(){
+    $( "#loader" ).delay(2000).fadeOut(400, function(){
+        $( "body" ).fadeIn(400);
+    });  
+};
 	// iPad and iPod detection  
   var isiPad = function(){
     return (navigator.platform.indexOf("iPad") != -1);
@@ -126,11 +132,7 @@ function closeMenuMobile (){
 
         };
 
-  var loader = function(){
-    $( "#loader" ).delay(2000).fadeOut(400, function(){
-        $( "body" ).fadeIn(400);
-    });  
-};
+
 //Setting the height to the window height
 $(document).ready(function() {
 

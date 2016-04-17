@@ -53,7 +53,6 @@
 <!--/#about-company-->
 <div id="fh5co-press" data-section="press">
    <div class="container">
-      <div class="row">
          <div class="col-md-12 section-heading text-center">
             <h2 >Our Clan</h2>
             <div class="row">
@@ -62,7 +61,7 @@
                </div>
             </div>
          </div>
-      </div>
+      
       <div class="row">
          <div class="col-md-12">
             <!-- Press Item -->
@@ -185,12 +184,14 @@
       <p>Thanks for writing to us, <span>generic user</span>. We'll get back with you as soon as we can.
       </p>
     </div>
-    <div id="messages" class="well" ng-show="message"></div>
+
+
+ <div id="messages" class="well" ng-show="message"></div>
       <!-- FORM -->
-      <!-- <div class="formwraper">
-      <form ng-submit="processForm()"> -->
+      <div class="formwraper">
+      <form ng-submit="processForm()">
          <!-- NAME -->
-        <!--  <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+         <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
             <input type="text" name="name" class="form-control" placeholder="Name" ng-model="formData.name">
             <span class="help-block" ng-show="errorName"></span>
          </div>
@@ -207,37 +208,6 @@
          </button>
       </form>
   </div>
-
-
- -->
-
-
- <form method="post" name="form" role="form" ng-submit="form.$valid && sendMessage(input)" novalidate>
-                <p ng-show="success">Thanks for getting in touch!</p>
-                <p ng-show="error">Something wrong happened!, please try again.</p>
-                <legend>Contact</legend>
-                <fieldset>
-                    <div>
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" ng-model="input.name" required>
-                    </div>
-                    <div>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" ng-model="input.email" required>
-                    </div>
-                    <div>
-                        <label for="messsage">Message:</label>
-                        <textarea id="messsage" name="message" ng-model="input.message" required></textarea>
-                    </div>
-                    <div>
-                        <label for="honeypot">I promise I'm not a bot</label>
-                        <input type="text" id="honeypot" name="honeypot" ng-model="input.honeyPot">
-                    </div>
-                </fieldset>
-                <button type="submit" name="submit" value="submit">Submit</button>
-            </form>
-
-
 
 
 

@@ -3,6 +3,7 @@
 angular.module('sharingsmiles', []).controller('HomeController',HomeController);
 
 function HomeController($scope,$routeParams,$http){
+  $(document).scrollTop(0);
 	
   $scope.resources = [
             '/images/videorun.mp4',
@@ -201,87 +202,6 @@ function closeMenuMobile (){
 
 
 
-
-var viewportHeight = $(window).height(); //window height
-var position = $(window).scrollTop(); //position of the viewport
-var pages = $('ul.nav a').length; //number of sections/links
-var $one = $(' #menu-1 ');
-var $two = $(' #menu-2 ');
-var $three = $(' #menu-3 ');
-
-$(document).ready(function() {
-  resizeBase();
-  makeOneActive();
-});
-
-$(window).resize(function() {
-  resizeBase();
-});
-
-function resizeBase() {
-
-  var viewportHeight = $(window).height(); //refigure window height
-  $('.base').css({
-    'height': viewportHeight
-  });
-
-}
-
-;
-
-//triggers a function for each section based on where the scroll position is
-$(window).scroll(function() {
-
-  position = $(window).scrollTop();
-
-  if ((viewportHeight / 2) > position > 0) {
-    //alert(position);
-    makeOneActive();
-  } else if ((viewportHeight * 1.5) > position && position > (viewportHeight / 2)) {
-    //alert(position);
-    makeTwoActive();
-  } else {
-    //alert(position);
-    makeThreeActive();
-  }
-});
-
-//function for the first panel
-function makeOneActive() {
-  $one.addClass('active');
-  $two.removeClass('active');
-  $three.removeClass('active');
-
-  $('div.label').addClass('invisible');
-  $('div.label-second-2').removeClass('invisible');
-  $('div.up').addClass('invisible');
-  $('div.down').removeClass('invisible');
-}
-
-//function for the second panel
-function makeTwoActive() {
-  $one.removeClass('active');
-  $two.addClass('active');
-  $three.removeClass('active');
-
-  $('div.label').addClass('invisible');
-  $('div.label-third').removeClass('invisible');
-  $('div.label-first').removeClass('invisible');
-  $('div.up').removeClass('invisible');
-  $('div.down').removeClass('invisible');
-}
-
-//function for the third panel
-function makeThreeActive() {
-  $one.removeClass('active');
-  $two.removeClass('active');
-  $three.addClass('active');
-
-  $('div.label').addClass('invisible');
-  $('div.label-second-1').removeClass('invisible');
-  $('div.up').removeClass('invisible');
-  $('div.down').addClass('invisible');
-}
 
 $(document).ready(function() {
 
