@@ -82,6 +82,7 @@ h6 {
 
 }
 .container {
+    width: 100%;
     text-align: center;
 }
 
@@ -238,7 +239,7 @@ position: absolute;
     float: left;
     display: block;
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 200;
     padding-left: 0;
     color: #fff;
 }
@@ -316,7 +317,6 @@ position: absolute;
 }
 .section-heading h2 {
     font-size: 50px;
-    font-weight: 300;
     color: black;
     text-transform: uppercase;
     position: relative;
@@ -345,7 +345,7 @@ input[type="submit"] {
     height: 50px;
     font-size: 25px;
 }
-..partnershipdesc {
+.partnershipdesc {
     font-weight: 300;
     line-height: 40px;
     color: #fff;
@@ -645,13 +645,13 @@ input[type="submit"] {
     color: #d1d1d1;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 300;
     margin-bottom: 10px;
 }
 #fh5co-our-services .box h3 {
     margin: 0 0 20px 0;
     padding: 0;
-    font-weight: 400;
+    font-weight: 100;
     font-size: 20px;
     color: #444;
 }
@@ -707,7 +707,7 @@ input[type="submit"] {
 #fh5co-press .fh5co-press-item .fh5co-press-text .fh5co-press-title {
     margin: 0 0 20px 0;
     padding: 0 0 10px 0;
-    font-weight: 400;
+    font-weight: 100;
     font-size: 38px;
     color: #444;
     position: relative;
@@ -1834,7 +1834,7 @@ a.out {
     margin-left: 16%;
 }
 .tab-content.well img{
-  width: 50%;
+  width: 40%;
 }
 
 .overlaysec {
@@ -2467,7 +2467,6 @@ height: 60px;
     margin-left: -120px;
 }
 .navbar-header {
-    margin-left: -10%;
     color: white;
     font-size: 21px;
     line-height: 26px;
@@ -2475,9 +2474,7 @@ height: 60px;
 #fh5co-header.navbar-fixed-top p {
     display: none;
 }
-ul.nav.navbar-nav.navbar-right {
-    margin-right: -10%;
-}
+
 
 svg{
   width:100%;
